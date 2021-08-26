@@ -3,18 +3,18 @@ import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from '@fortawesome/free-solid-svg-icons';
 
-const FormTask = ({ task, changeTask }) => {
-  const [inputTask, changeInputTask] = useState('');
+const FormTask = ({ task, setTask, }) => {
+  const [inputTask, setInputTask] = useState('');
 
 
   const handleInput = (e) => {
-    changeInputTask(e.target.value);
+    setInputTask(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    changeTask(
+    setTask(
       [...task,
       {
         id: uuidv4(),

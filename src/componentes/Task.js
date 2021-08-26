@@ -4,14 +4,14 @@ import { faCheckSquare, faEdit, faTimes, faSquare } from '@fortawesome/free-soli
 
 const Task = ({ task, toggleComplete, editText, deleteTask }) => {
 
-  const [editTask, changeEditTask] = useState(false);
-  const [newTask, changeNewTask] = useState(task.text)
+  const [editTask, setEditTask] = useState(false);
+  const [newTask, setNewTask] = useState(task.text)
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     editText(task.id, newTask);
-    changeEditTask(!editTask);
+    setEditTask(!editTask);
   };
 
   return (
@@ -28,7 +28,7 @@ const Task = ({ task, toggleComplete, editText, deleteTask }) => {
               type="text"
               className="form-edit-task__input"
               value={newTask}
-              onChange={(e) => changeNewTask(e.target.value)}
+              onChange={(e) => setNewTask(e.target.value)}
             />
             <button
               type="submit"
@@ -43,7 +43,7 @@ const Task = ({ task, toggleComplete, editText, deleteTask }) => {
         <FontAwesomeIcon
           icon={faEdit}
           className="task-list__icon task-list__icon-action"
-          onClick={() => changeEditTask(!editTask)}
+          onClick={() => setEditTask(!editTask)}
         />
         <FontAwesomeIcon
           icon={faTimes}
