@@ -23,6 +23,7 @@ const FormTask = ({ task, setTask, }) => {
       }
       ]
     );
+    setInputTask('');
   };
 
   return (

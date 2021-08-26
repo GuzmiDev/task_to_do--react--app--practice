@@ -53,7 +53,7 @@ const TaskList = ({ task, setTask, showTaskFinished }) => {
               deleteTask={deleteTask}
             />)
           }
-          return;
+          return '';
         })
         :
         <div className="task-list__msg">~ No hay tareas agregadas ~</div>
