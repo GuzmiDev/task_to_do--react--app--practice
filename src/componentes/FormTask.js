@@ -19,14 +19,14 @@ const FormTask = ({ task, changeTask }) => {
       {
         id: uuidv4(),
         text: inputTask,
-        completada: true
+        complete: false
       }
       ]
     );
   };
 
   return (
-    <form action="" className="form-task" onSubmit={handleSubmit}>
+    <form id="form-task" action="" className="form-task" onSubmit={handleSubmit}>
       <input
         type="text"
         className="form-task__input"

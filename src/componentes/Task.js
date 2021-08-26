@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckSquare, faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare, faEdit, faTimes, faSquare } from '@fortawesome/free-solid-svg-icons';
 
-const Task = ({ task }) => {
+const Task = ({ task, toggleComplete, editText, deleteTask }) => {
 
   const [editTask, changeEditTask] = useState(false);
   const [newTask, changeNewTask] = useState(task.text)
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    task.text = newTask;
+    editText(task.id, newTask);
     changeEditTask(!editTask);
   };
 
   return (
     <li className="task-list__task">
       <FontAwesomeIcon
-        icon={faCheckSquare}
+        icon={task.complete ? faCheckSquare : faSquare}
         className="task-list__icon task-list__icon-check"
+        onClick={() => toggleComplete(task.id)}
       />
       <div className="task-list__text">
         {editTask ?
@@ -47,6 +48,7 @@ const Task = ({ task }) => {
         <FontAwesomeIcon
           icon={faTimes}
           className="task-list__icon task-list__icon-action"
+          onClick={() => deleteTask(task.id)}
         />
       </div>
     </li>
