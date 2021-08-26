@@ -18,7 +18,7 @@ const FormTask = ({ task, changeTask }) => {
       [...task,
       {
         id: uuidv4(),
-        texto: inputTask,
+        text: inputTask,
         completada: true
       }
       ]
